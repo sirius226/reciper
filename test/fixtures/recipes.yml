@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  dishId: 1
+  recipeCode: MyString
+  openSource: false
+
+two:
+  name: MyString
+  description: MyString
+  dishId: 1
+  recipeCode: MyString
+  openSource: false
