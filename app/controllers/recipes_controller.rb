@@ -1,6 +1,32 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
+  def new_recipe_name
+    @recipe = Recipe.new
+  end
+
+  def new_recipe_code
+    @recipe = set_recipe
+  end 
+
+  def create_recipe_name
+    @recipe = Recipe.new
+    @recipe.dishId = 9999;
+    @recipe.name = recipe_params[:name]
+    @recipe.description = recipe_params[:description]
+    @recipe.recipeCode = ""
+
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to new_recipe_code_path(:id => @recipe.id), notice: 'Recipe was successfully created.' }
+        format.json { render :show, status: :created, location: @recipe }
+      else
+        format.html { render :new }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   # GET /recipes
   # GET /recipes.json
   def index

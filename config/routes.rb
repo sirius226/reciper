@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   resources :recipes
 
+  get 'new_recipe_name' => 'recipes#new_recipe_name'
+  post 'new_recipe_name' => 'recipes#create_recipe_name'
+  
+  get 'new_recipe_code' => 'recipes#new_recipe_code'
+  put 'new_recipe_code' => 'recipe#create_recipe_code'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

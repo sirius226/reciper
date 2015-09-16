@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no"/>
+	<title>SmartWok</title>
+</head>
+<body>
+	
+	<div class="top clearfix">
+		<div class="fl"></div>
+		<div class="fr">Create Recipe</div>
+	</div>
+
+	<section>
+		<%= form_for(@recipe, url:new_recipe_name_path, :method => :post) do |f|%>
+			<div class="form-box" style="padding:0">
+				<div class="item"><label><span>Recipe Name</span><input name="recipe[name]" type="text"></label></div>
+				<div class="item"><label><span>Description</span><textarea name="recipe[description]"></textarea></label></div>
+				<div class="item"><input class="smt-btn" type="button" id="submit_recipe_name" value="Create Recipe Code"></div>
+			</div>
+		<% end %>
+	</section>
+
+</body>
+</html>
