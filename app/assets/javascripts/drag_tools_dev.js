@@ -943,6 +943,7 @@
                     var x = $(this).attr("name");
                     var y = $(this).val();
                     _rp_j_1[x] = y;
+                    console.log(_rp_j_1);
                 });
 
                 $(this).find("ul>.ui-draggable").each(function() {
@@ -953,56 +954,46 @@
                         _rp_j_2[x] = y;
 
                     });
-                    var _re_form = JSON.stringify(_rp_j_2);
-                    _rp_arr.push(_re_form);
+                    _rp_arr.push(_rp_j_2);
 
                 });
 
-                var _from_rp_j_1 = JSON.stringify(_rp_j_1);
-                // console.log(_from_rp_j_1);
-                // console.log(_rp_arr);
-
-                _all.push(_from_rp_j_1);
+                _all.push(_rp_j_1);
                 _all.push(_rp_arr);
                 // Array.prototype.push.apply(_all,_rp_arr)
             } else {
 
                 $(this).find("input").each(function() {
-                    var x = $(this).attr("name");
+                    var x = $(this).attr("name")
                     var y = $(this).val();
                     _data_json[x] = y;
+                    console.log(_data_json);
 
                 });
-                var _from_json = JSON.stringify(_data_json);
-                // console.log(_from_json);
-                _all.push(_from_json);
+                _all.push(_data_json);
             }
+            
         });
-
-        var d_json = JSON.stringify({'d':_all});
+        console.log(_all);
+        var d_json = {recipeCode:_all}
+        console.log(d_json);
         $.ajax({
                 type: 'POST',
-                url: '?act=parse',
+                url: '',
+                headers: {
+                  'X-Transaction': 'POST Example',
+                  'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
                 dataType: "json",
                 data: d_json,
                 cache: false,
-                success: function(data) {
-                    code = data['code'];
-                    if (code == 0) {
-                        // alert('here');
-                        console.log(data['fres'])
-                        // $('#res-sec').removeClass('hide-tag');
-                        $('#res-panel').val(data['fres']);
-                    } else {
-                        // alert('身份验证失败');
-                        // window.location.href = '/bx/1';
-                    };
+                success: function(data) {   
+                    console.log(data)
+                    $('#res-panel').val(data['recipeCode']);  
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert('Network Error!');
                 },
             });
-        console.log(d_json);
     }); //click event
 
     $('.rev-btn').on('click', function(){
