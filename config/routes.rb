@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   get 'new_recipe_name' => 'recipes#new_recipe_name'
   post 'new_recipe_name' => 'recipes#create_recipe_name'
   
-  get 'new_recipe_code' => 'recipes#new_recipe_code'
-  post 'new_recipe_code' => 'recipes#create_recipe_code'
+  get 'new_recipe_code/:id' => 'recipes#new_recipe_code'
+  put 'new_recipe_code/:id' => 'recipes#create_recipe_code'
+
+  get 'edit_recipe_code/:id' => 'recipes#edit_recipe_code'
+  put 'edit_recipe_code/:id' => 'recipes#update_recipe_code'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

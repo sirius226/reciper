@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
 
   def create_recipe_code
     @recipe = Recipe.find(params[:id])
-    @recipe.recipeCode = params[:recipeCode].to_s
+    @recipe.recipeCode = params[:recipeCode].to_json
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -40,7 +40,26 @@ class RecipesController < ApplicationController
       end
     end   
   end  
-  
+
+  def edit_recipe_code
+    @recipe = set_recipe
+    @recipeCode = JSON.parse(@recipe.recipeCode)
+  end
+
+  def update_recipe_code
+    @recipe = Recipe.find(params[:id])
+    @recipe.recipeCode = params[:recipeCode].to_json
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /recipes
   # GET /recipes.json
   def index

@@ -930,6 +930,7 @@
     });
 
     // 代码转换逻辑
+    // 代码转换逻辑
     $("footer ul li:eq(2)").on("click", function() {
         var _all = [];
         $(".command-box>.ui-draggable").each(function() {
@@ -943,7 +944,6 @@
                     var x = $(this).attr("name");
                     var y = $(this).val();
                     _rp_j_1[x] = y;
-                    console.log(_rp_j_1);
                 });
 
                 $(this).find("ul>.ui-draggable").each(function() {
@@ -957,35 +957,39 @@
                     _rp_arr.push(_rp_j_2);
 
                 });
+                _rp_j_1["arr"] = _rp_arr
+                // console.log(_from_rp_j_1);
+                // console.log(_rp_arr);
 
                 _all.push(_rp_j_1);
-                _all.push(_rp_arr);
                 // Array.prototype.push.apply(_all,_rp_arr)
             } else {
 
                 $(this).find("input").each(function() {
-                    var x = $(this).attr("name")
+                    var x = $(this).attr("name");
                     var y = $(this).val();
                     _data_json[x] = y;
-                    console.log(_data_json);
 
                 });
-                _all.push(_data_json);
+                var _from_json = _data_json;
+                // console.log(_from_json);
+                _all.push(_from_json);
             }
-            
         });
+
         console.log(_all);
         var d_json = {recipeCode:_all}
         console.log(d_json);
         $.ajax({
-                type: 'POST',
+                type: 'PUT',
                 url: '',
                 headers: {
-                  'X-Transaction': 'POST Example',
+                  'X-Transaction': 'PUT Example',
                   'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
                 },
                 dataType: "json",
-                data: d_json,
+                contentType: 'application/json',
+                data: JSON.stringify(d_json),
                 cache: false,
                 success: function(data) {   
                     console.log(data)
