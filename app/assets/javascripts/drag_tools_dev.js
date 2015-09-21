@@ -52,11 +52,14 @@
 
     // $("section").height($(window).height()-151);
 
-    // $(document).ready(
-    // 	function() {
-    // 	$("section").niceScroll({cursorcolor:"#ffb300",cursoropacitymin :1});
-    // 	}
-    // );
+    $(document).ready(
+    	function() {
+    	   window.rubish.save_tmp_state();
+            all();
+            reset_box_stack();
+            get_main_state();
+    	}
+    );
 
     $("footer li,.command-box .cmd i,.w-bg,.o-bg,.slide-l,.slide-r").on("touchstart", function() {
         return true;

@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to new_recipe_code_path(:id => @recipe.id), notice: 'Recipe was successfully created.' }
+        format.html { redirect_to action:"create_recipe_code", id:@recipe.id}
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
