@@ -523,8 +523,9 @@
 								<em class="cmd-name">Repeater</em>
 					            <em class="cmd-label"><%= item["label"] %></em>
 					            <input type="hidden" name="name" value="Repeater">
-					            <input type="hidden" name="label" value="">
-					            <input type="hidden" name="time" value="">
+					            <input type="hidden" name="label" value="<%= item["label"] %>">
+					            <input type="hidden" name="time" value="<%= item["time"] %>">
+								<input type="hidden" name="times" value="<%= item["times"] %>">
 					            <i></i>
 							</div>
 							<ul class="repeat-box receive-box">
@@ -538,9 +539,9 @@
 								                <em class="cmd-temp"><%= insider["temp"] %></em>
 								                <em class="cmd-state"><%= insider["state"] %></em>
 								                <input type="hidden" name="name" value="Heater">
-								                <input type="hidden" name="label" value="">
-								                <input type="hidden" name="temp" value="">
-								                <input type="hidden" name="state" value="">
+								                <input type="hidden" name="label" value="<%= insider['label'] %>">
+								                <input type="hidden" name="temp" value="<%= insider['temp'] %>">
+								                <input type="hidden" name="state" value="<%= insider['state'] %>">
 								                <i></i>
 								            </div>
 								        </li>
@@ -551,8 +552,8 @@
 								                <em class="cmd-label"><%= insider["label"] %></em>
 								                <em class="cmd-num"><%= insider["num"] %></em>
 								                <input type="hidden" name="name" value="Box">
-								                <input type="hidden" name="label" value="">
-								                <input type="hidden" name="num" value="">
+								                <input type="hidden" name="label" value="<%= insider['label'] %>">
+								                <input type="hidden" name="num" value="<%= insider['num'] %>">
 								                <i></i>
 								            </div>
 								        </li>
@@ -561,12 +562,12 @@
 								            <div class="cmd">
 								                <em class="cmd-name">Stirrer</em>
 								                <em class="cmd-label"><%= insider["label"] %></em>
-								                <em class="cmd-temp"><%= insider["speed"] %></em>
+								                <em class="cmd-speed"><%= insider["speed"] %></em>
 								                <em class="cmd-state"><%= insider["state"] %></em>
 								                <input type="hidden" name="name" value="Stirrer">
-								                <input type="hidden" name="label" value="">
-								                <input type="hidden" name="temp" value="">
-								                <input type="hidden" name="state" value="">
+								                <input type="hidden" name="label" value="<%= insider['label'] %>">
+								                <input type="hidden" name="speed" value="<%= insider['speed'] %>">
+								                <input type="hidden" name="state" value="<%= insider['state'] %>">
 								                <i></i>
 								            </div>
 								        </li>
@@ -578,8 +579,9 @@
 								                <em class="cmd-temp"><%= insider["speed"] %></em>
 								                <em class="cmd-state"><%= insider["state"] %></em>
 								                <input type="hidden" name="name" value="Fan">
-								                <input type="hidden" name="label" value="">
-								                <input type="hidden" name="state" value="">
+								                <input type="hidden" name="label" value="<%= insider['label'] %>">
+								                <input type="hidden" name="speed" value="<%= insider['speed'] %>">
+								                <input type="hidden" name="state" value="<%= insider['state'] %>">
 								                <i></i>
 								            </div>
 								        </li> 
@@ -589,8 +591,8 @@
 								                <em class="cmd-name">Timer</em>
 								                <em class="cmd-label"><%= insider["label"] %></em>			             
 								                <input type="hidden" name="name" value="Timer">
-								                <input type="hidden" name="label" value="">
-								                <input type="hidden" name="time" value="">
+								                <input type="hidden" name="label" value="<%= insider['label'] %>">
+								                <input type="hidden" name="time" value="<%= insider['time'] %>">
 								                <i></i>
 								            </div>
 								        </li>   
@@ -607,9 +609,9 @@
 				                <em class="cmd-temp"><%= item["temp"] %></em>
 				                <em class="cmd-state"><%= item["state"] %></em>
 				                <input type="hidden" name="name" value="Heater">
-				                <input type="hidden" name="label" value="">
-				                <input type="hidden" name="temp" value="">
-				                <input type="hidden" name="state" value="">
+				                <input type="hidden" name="label" value="<%= item["label"] %>">
+				                <input type="hidden" name="temp" value="<%= item["temp"] %>">
+				                <input type="hidden" name="state" value="<%= item["state"] %>">
 				                <i></i>
 				            </div>
 				        </li>
@@ -620,8 +622,8 @@
 				                <em class="cmd-label"><%= item["label"] %></em>
 				                <em class="cmd-num"><%= item["num"] %></em>
 				                <input type="hidden" name="name" value="Box">
-				                <input type="hidden" name="label" value="">
-				                <input type="hidden" name="num" value="">
+				                <input type="hidden" name="label" value="<%= item["label"] %>">
+				                <input type="hidden" name="num" value="<%= item["num"] %>">
 				                <i></i>
 				            </div>
 				        </li>
@@ -630,12 +632,12 @@
 				            <div class="cmd">
 				                <em class="cmd-name">Stirrer</em>
 				                <em class="cmd-label"><%= item["label"] %></em>
-				                <em class="cmd-temp"><%= item["speed"] %></em>
+				                <em class="cmd-speed"><%= item["speed"] %></em>
 				                <em class="cmd-state"><%= item["state"] %></em>
 				                <input type="hidden" name="name" value="Stirrer">
-				                <input type="hidden" name="label" value="">
-				                <input type="hidden" name="temp" value="">
-				                <input type="hidden" name="state" value="">
+				                <input type="hidden" name="label" value="<%= item["label"] %>">
+				                <input type="hidden" name="speed" value="<%= item["speed"] %>">
+				                <input type="hidden" name="state" value="<%= item["state"] %>">
 				                <i></i>
 				            </div>
 				        </li>
@@ -644,12 +646,12 @@
 				            <div class="cmd">
 				                <em class="cmd-name">Fan</em>
 				                <em class="cmd-label"><%= item["label"] %></em>
-				                <em class="cmd-temp"><%= item["speed"] %></em>
+				                <em class="cmd-speed"><%= item["speed"] %></em>
 				                <em class="cmd-state"><%= item["state"] %></em>
 				                <input type="hidden" name="name" value="Fan">
-				                <input type="hidden" name="label" value="">
-				                <input type="hidden" name="temp" value="">
-				                <input type="hidden" name="state" value="">
+				                <input type="hidden" name="label" value="<%= item["label"] %>">
+				                <input type="hidden" name="speed" value="<%= item["speed"] %>">
+				                <input type="hidden" name="state" value="<%= item["state"] %>">
 				                <i></i>
 				            </div>
 				        </li> 
@@ -660,8 +662,8 @@
 				                <em class="cmd-label"><%= item["label"] %></em>
 				                <em class="cmd-temp"><%= item["time"] %></em>
 				                <input type="hidden" name="name" value="Timer">
-				                <input type="hidden" name="label" value="">
-				                <input type="hidden" name="time" value="">
+				                <input type="hidden" name="label" value="<%= item["label"] %>">
+				                <input type="hidden" name="time" value="<%= item["time"] %>">
 				                <i></i>
 				            </div>
 				        </li>   
